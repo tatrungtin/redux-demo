@@ -5,7 +5,7 @@ import TaskForm from './components/TaskForm';
 import TaskControl from './components/TaskControl';
 import { connect } from 'react-redux';
 import * as actions from './actions/index';
-
+import {demo} from './training/demo';
 class App extends Component {
 
     // toggle redux
