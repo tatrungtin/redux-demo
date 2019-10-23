@@ -11,6 +11,17 @@ var myReducer =(state = initialState, action) =>{
         state.status = !state.status;
         return  state;
     }
+    if(action.type === 'SORT'){
+        var {by, value } = action.sort;
+        var {status} = state;
+        return {
+            status :status,
+            sort :{
+                by :by,
+                value :value
+            }
+        };
+    }
     return  state;
     
 }
@@ -25,3 +36,14 @@ var action = {
 store.dispatch(action);
 
 console.log("toogle status:",store.getState());
+
+//sort by name
+var sortAction  = {
+    type :'SORT',
+    sort : {
+        by :'name',
+        value :-1
+    }
+}
+store.dispatch(sortAction);
+console.log("SORT:",store.getState());
