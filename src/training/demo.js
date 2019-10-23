@@ -7,8 +7,21 @@ var initialState = {
     }
 }
 var myReducer =(state = initialState, action) =>{
+    if(action.type === 'TOOGLE_STATUS'){
+        state.status = !state.status;
+        return  state;
+    }
     return  state;
+    
 }
 const store = createStore(myReducer);
-console.log("default:",store);
 
+//thuc hien cong viec change status
+
+console.log("default:",store.getState());
+var action = {
+    type :'TOOGLE_STATUS'
+};
+store.dispatch(action);
+
+console.log("toogle status:",store.getState());
